@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT & Cybersecurity Blog | IT Legends LLC Illinois</title>
+  <meta name="description" content="Practical managed IT tips, cybersecurity guides & Microsoft 365 advice for Illinois small businesses from IT Legends LLC — Authorized Microsoft & HPE Partner." />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Blog-specific styles (no images) -->
+  <style>
+    /* HERO */
+    .blog-hero {
+      padding: 1.6rem 0 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .blog-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(15, 23, 42, 0.7);
+      font-size: 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+
+    body.light-mode .blog-hero-badge {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+      color: #1e293b;
+    }
+
+    .blog-hero h1 {
+      margin-bottom: 0.4rem;
+    }
+
+    .blog-hero-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 540px;
+    }
+
+    .blog-hero-right {
+      position: relative;
+      justify-self: flex-end;
+    }
+
+    .blog-hero-card {
+      border-radius: 18px;
+      padding: 1.3rem 1.4rem;
+      background: radial-gradient(circle at top left,
+        rgba(230, 57, 70, 0.4),
+        rgba(3, 5, 15, 0.98)
+      );
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      max-width: 320px;
+      transform: translateY(10px);
+      animation: floatUp 0.6s ease-out forwards;
+    }
+
+    body.light-mode .blog-hero-card {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.08);
+    }
+
+    .blog-hero-card h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .blog-hero-card p {
+      font-size: 0.9rem;
+    }
+
+    .blog-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.4rem 0 0.7rem;
+    }
+
+    .blog-chip {
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: rgba(15, 23, 42, 0.76);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    body.light-mode .blog-chip {
+      background: #f3f4f6;
+      border-color: #e5e7eb;
+      color: #111827;
+    }
+
+    .social-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .social-btn {
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    body.light-mode .social-btn {
+      background: #f9fafb;
+      border-color: #e5e7eb;
+      color: #111827;
+    }
+
+    /* FLOAT ANIMATION */
+    @keyframes floatUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* POSTS GRID */
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .post-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+      transform: translateY(0);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      padding: 1rem 1.1rem 1.1rem;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      border-color: rgba(230, 57, 70, 0.7);
+    }
+
+    body.light-mode .post-card {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+    }
+
+    .post-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .post-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0.1rem 0 0.25rem;
+    }
+
+    .post-excerpt {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .post-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .read-link {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.88rem;
+    }
+
+    /* CTA & SECTION SPACING (tighter just on blog page) */
+    body.blog-page .section {
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
+    }
+
+    body.blog-page .cta-section {
+      padding-top: 1.2rem;
+      padding-bottom: 2rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 880px) {
+      .blog-hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .blog-hero-right {
+        justify-self: flex-start;
+      }
+      .blog-hero-card {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .blog-hero {
+        padding-top: 1.4rem;
+        padding-bottom: 0.8rem;
+      }
+    }
+  </style>
+
+  <!-- ═══ SEO: CANONICAL ═══════════════════════════════════════════ -->
+  <link rel="canonical" href="blog.html" />
+
+  <!-- ═══ SEO: OPEN GRAPH ══════════════════════════════════════════ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.itlegends.net/blog" />
+  <meta property="og:title"       content="IT & Cybersecurity Blog for Illinois Small Businesses | IT Legends LLC" />
+  <meta property="og:description" content="Practical managed IT tips, cybersecurity guides, Microsoft 365 advice, and technology news for Illinois small businesses from IT Legends LLC — your authorized Microsoft & HPE partner." />
+  <meta property="og:image"       content="https://www.itlegends.net/itl_monogram_logo.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name"   content="IT Legends LLC" />
+  <meta property="og:locale"      content="en_US" />
+
+  <!-- ═══ SEO: TWITTER CARD ════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="IT & Cybersecurity Blog for Illinois Small Businesses | IT Legends LLC" />
+  <meta name="twitter:description" content="Practical managed IT tips, cybersecurity guides, Microsoft 365 advice, and technology news for Illinois small businesses from IT Legends LLC — your authorized Microsoft & HPE partner." />
+  <meta name="twitter:image"       content="https://www.itlegends.net/itl_monogram_logo.png" />
+
+  <!-- ═══ SEO: ADDITIONAL META ═════════════════════════════════════ -->
+  <meta name="robots"      content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="author"      content="IT Legends LLC" />
+  <meta name="geo.region"  content="US-IL" />
+  <meta name="geo.placename" content="Springfield, Illinois" />
+  <meta name="theme-color" content="#e63946" />
+  <meta name="format-detection" content="telephone=yes" />
+
+  <!-- ═══ PERFORMANCE: PRECONNECT / DNS-PREFETCH ═══════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+
+  <!-- ═══ TYPOGRAPHY UPGRADE ═══════════════════════════════════════ -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ═══ FAVICON ══════════════════════════════════════════════════ -->
+  <link rel="icon" type="image/png" href="itl_monogram_logo.png" />
+  <link rel="apple-touch-icon" href="itl_monogram_logo.png" />
+  <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+
+
+  <!-- ═══ SCHEMA.ORG: LOCAL BUSINESS ══════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.itlegends.net/#business",
+    "name": "IT Legends LLC",
+    "alternateName": "IT LEGENDS LLC",
+    "description": "Security-first managed IT services, cybersecurity, Microsoft 365, and HPE infrastructure for small businesses across Illinois. Authorized Microsoft, HP & HPE Partner.",
+    "url": "https://www.itlegends.net/",
+    "logo": "https://www.itlegends.net/itl_monogram_logo.png",
+    "image": "https://www.itlegends.net/itl_monogram_logo.png",
+    "telephone": "+18479995133",
+    "email": "victor_o@itlegends.net",
+    "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Credit Card, Debit Card, Cash, Zelle, Venmo",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2501 Chatham Road",
+      "addressLocality": "Springfield",
+      "addressRegion": "IL",
+      "postalCode": "62704",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.7817,
+      "longitude": -89.6501
+    },
+    "areaServed": [
+      {"@type": "State", "name": "Illinois"},
+      {"@type": "City", "name": "Springfield"},
+      {"@type": "City", "name": "Chicago"},
+      {"@type": "City", "name": "Peoria"},
+      {"@type": "City", "name": "Rockford"},
+      {"@type": "City", "name": "Naperville"},
+      {"@type": "City", "name": "Bloomington"},
+      {"@type": "City", "name": "Champaign"},
+      {"@type": "City", "name": "Waukegan"},
+      {"@type": "City", "name": "Evanston"}
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Managed IT Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Managed IT Support"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": "39", "priceCurrency": "USD"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Microsoft 365 Management"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity & Email Security"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HPE Server & Storage Support"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Backup & Disaster Recovery"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Strategy & Advisory"}}
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/it-legends-llc",
+      "https://www.facebook.com/itlegends"
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+<a href="blog.html#main-content" class="skip-link">Skip to main content</a>
+<body class="blog-page">
+
+  <!-- Cookie consent banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite">
+    <div class="cookie-inner">
+      <p>
+        We use cookies to improve your experience, analyze traffic, and enhance security.
+        By using this site, you agree to our
+        <a href='privacy.html'>Privacy Policy</a>.
+      </p>
+      <div class="cookie-actions">
+        <button id="cookieAcceptAll" class="btn btn-primary">Accept all</button>
+        <button id="cookieReject" class="btn btn-outline">Reject non-essential</button>
+        <button id="cookieManage" class="btn btn-ghost">Manage preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie preferences modal -->
+  <div class="cookie-modal-backdrop" id="cookieModalBackdrop" aria-hidden="true">
+    <div class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+      <div class="cookie-modal-header">
+        <h2 id="cookieModalTitle">Cookie preferences</h2>
+        <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close preferences">&times;</button>
+      </div>
+      <div class="cookie-modal-body">
+        <p class="cookie-modal-intro">
+          Select which types of cookies you want to allow. You can change your preferences at any time.
+        </p>
+        <div class="cookie-option">
+          <div>
+            <h3>Strictly necessary</h3>
+            <p>Required for core site functionality such as security and basic features. Always on.</p>
+          </div>
+          <div>
+            <label class="switch">
+              <input type="checkbox" checked disabled>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="cookie-option">
+          <div>
+            <h3>Analytics</h3>
+            <p>Helps us understand how the site is used so we can improve it.</p>
+          </div>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="cookieAnalytics">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="cookie-option">
+          <div>
+            <h3>Marketing</h3>
+            <p>Used to deliver relevant ads and track campaign performance.</p>
+          </div>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="cookieMarketing">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="cookie-modal-footer">
+        <button id="cookieSavePrefs" class="btn btn-primary">Save preferences</button>
+        <button id="cookieAcceptAllModal" class="btn btn-outline">Accept all</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Authorized Partner badge -->
+  <div class="partner-floating-badge">
+    <div class="partner-floating-pill">
+      <span class="partner-dot"></span>
+      <span class="partner-label">Authorized Microsoft, HP &amp; HPE Partner &amp; Reseller</span>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- HEADER -->
+    <header class="site-header">
+    <div class="container header-inner">
+      <a class='logo-link' href='index.html'>
+        <div class="logo-wrap">
+          <img src="itl_monogram_logo.png" alt="IT LEGENDS logo" class="logo" />
+          <div class="logo-text">
+            <span class="brand-name">IT LEGENDS LLC</span>
+            <span class="brand-tagline">Smart. Secure. Scalable IT.</span>
+          </div>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+
+      <nav class="main-nav" id="mainNav">
+        <div class="nav-dropdown" tabindex="0">
+          <a class='nav-dropbtn' href='services.html'>Services</a>
+          <div class="nav-dropdown-content">
+            <a href='service_bundles.html'>Service Bundles</a>
+            <a href='services.html'>Full Services</a>
+            <a href='cloud-services.html'>Cloud &amp; Infrastructure</a>
+            <a href='security-compliance.html'>Security &amp; Compliance</a>
+            <a href='backup-disaster-recovery.html'>Backup &amp; DR</a>
+            <a href='it-strategy-advisory.html'>IT Advisory</a>
+          </div>
+        </div>
+        <a href='industries.html'>Industries</a>
+        <a href='pricing.html'>Pricing</a>
+        <a href='about.html'>About</a>
+        <a href='support.html'>Support</a>
+        <a href='faq.html'>FAQ</a>
+        <a href='locations.html'>Locations</a>
+        <a href='HP-HPE-MICROSOFT.html'>Solutions &amp; Promotions</a>
+        <a class='active' href='blog.html'>Blog</a>
+        <a class='btn btn-outline' href='Consultation_form.html'>Book Consultation</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light/dark mode">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="main-content">
+    <!-- MODERN HERO -->
+    <section class="hero blog-hero">
+      <div class="container blog-hero-inner">
+        <div>
+          <span class="blog-hero-badge">
+            🔐 IT LEGENDS Insights
+          </span>
+          <h1>Modern IT, Explained in Plain English</h1>
+          <p class="blog-hero-sub">
+            Short, practical posts on managed IT, Cloud, cybersecurity, and Microsoft 365 —
+            written for busy owners, not IT people.
+          </p>
+
+          <div class="social-bar">
+            <a href="https://www.linkedin.com/company/it-legends-llc/" target="_blank" class="social-btn">Follow on LinkedIn</a>
+            <a href="https://www.facebook.com/Itlegendsllc" target="_blank" class="social-btn">Follow on Facebook</a>
+          </div>
+        </div>
+
+        <div class="blog-hero-card">
+      <h2>New on the blog</h2>
+      <div style="margin:.5rem 0;">
+        <span class="blog-chip">Managed IT</span>
+        <span class="blog-chip">Break-Fix</span>
+        <span class="blog-chip">Cybersecurity</span>
+      </div>
+      <p>
+        Technology has become too central and too complex to manage reactively.
+        Discover what Managed IT Services actually means, what break-fix IT is really
+        costing you, and how to know when it is time to make the switch.
+      </p>
+      <a class='btn btn-secondary btn-block' href='blog-managed-it-services-what-they-are.html'>
+        Read the article
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Latest Articles</h2>
+
+    <div class="post-grid">
+
+      <!-- LATEST POST -->
+      <a class='post-card' href='blog-managed-it-services-what-they-are.html'>
+        <div class="post-tag">Managed IT</div>
+        <h3 class="post-title">Managed IT Services: What They Are and Why More Businesses Are Making the Switch</h3>
+        <p class="post-excerpt">
+          The shift to Managed IT is not about chasing a trend — it reflects a simple reality.
+          Technology has become too central and too complex to manage reactively. Here is what
+          proactive IT support actually includes and what break-fix IT is really costing you.
+        </p>
+        <div class="post-meta-row">
+          <span>Approx. 5 min read</span>
+          <span class="read-link">Read Article →</span>
+        </div>
+      </a>
+
+      <a class='post-card' href='blog-managed-it-healthcare-accounting.html'>
+        <div class="post-tag">Healthcare &amp; Accounting IT</div>
+        <h3 class="post-title">Why Healthcare and Accounting Firms Need a Managed IT Company That Understands Their Industry</h3>
+        <p class="post-excerpt">
+          Both industries handle extraordinarily sensitive data and face strict regulatory requirements.
+          Discover why choosing the right managed IT partner is a compliance, security, and
+          business continuity decision — not just a technology one.
+        </p>
+        <div class="post-meta-row">
+          <span>Approx. 6 min read</span>
+          <span class="read-link">Read Article →</span>
+        </div>
+      </a>
+
+      <a class='post-card' href='blog-it-support-company-usa.html'>
+        <div class="post-tag">IT Support USA</div>
+        <h3 class="post-title">Why Choosing the Right IT Support Company USA Can Transform Your Business</h3>
+        <p class="post-excerpt">
+          Technology is the backbone of every successful organization. Partnering with the right
+          IT support company minimizes downtime, strengthens cybersecurity, and frees your team
+          to focus on what actually grows your business.
+        </p>
+        <div class="post-meta-row">
+          <span>Approx. 4 min read</span>
+          <span class="read-link">Read Article →</span>
+        </div>
+      </a>
+
+      <a class='post-card' href='blog-managed-it-services-for-startups.html'>
+        <div class="post-tag">Startups</div>
+        <h3 class="post-title">10 Benefits of Managed IT Services for Startups</h3>
+        <p class="post-excerpt">
+          Most startups don't have the budget for a full in-house IT team — and they shouldn't have to.
+          Discover 10 reasons why managed IT services give early-stage businesses enterprise-level technology
+          support at a fraction of the cost.
+        </p>
+        <div class="post-meta-row">
+          <span>Approx. 4 min read</span>
+          <span class="read-link">Read Article →</span>
+        </div>
+      </a>
+
+      <a class='post-card' href='blog-why-small-business-needs-managed-it-2026.html'>
+        <div class="post-tag">Managed IT</div>
+        <h3 class="post-title">Why Every Small Business Needs Managed IT Services in 2026</h3>
+        <p class="post-excerpt">
+          IT problems — slow systems, data breaches, unexpected downtime — quietly cost small
+          businesses thousands every year. Here's how managed IT services change that for good,
+          and why break-fix IT is holding Illinois businesses back.
+        </p>
+        <div class="post-meta-row">
+          <span>Approx. 5 min read</span>
+          <span class="read-link">Read Article →</span>
+        </div>
+      </a>
+
+      <a class='post-card' href='blog-hybrid-cloud-edge-computing.html'>
+        <div class="post-tag">Hybrid Cloud & Edge</div>
+        <h3 class="post-title">The Advantages of Hybrid Cloud and Edge Computing for SMBs</h3>
+        <p class="post-excerpt">
+          Learn how hybrid cloud and edge computing help SMBs boost performance,
+          strengthen security, and scale efficiently.
+        </p>
+        <div class="post-meta-row">
+          <span>Approx. 6 min read</span>
+          <span class="read-link">Read Article →</span>
+        </div>
+      </a>
+
+          <!-- POST 2 -->
+          <a class='post-card' href='blog-outgrown-break-fix.html'>
+            <div class="post-tag">Managed IT</div>
+            <h3 class="post-title">5 Signs Your Illinois Business Has Outgrown Break-Fix IT</h3>
+            <p class="post-excerpt">
+              Constant emergencies, slow responses, and repeat issues are all signals that the
+              “call when it breaks” model is holding your team back. Here are five clear signs
+              it’s time for managed IT support.
+            </p>
+            <div class="post-meta-row">
+              <span>Approx. 6 min read</span>
+              <span class="read-link">Read Article →</span>
+            </div>
+          </a>
+
+          <!-- POST 3 -->
+          <a class='post-card' href='blog-small-business-cybersecurity.html'>
+            <div class="post-tag">Cybersecurity</div>
+            <h3 class="post-title">The Small Business Cybersecurity Starter Pack (Illinois Edition)</h3>
+            <p class="post-excerpt">
+              A practical starter pack of security basics for Illinois small businesses, clinics,
+              and professional offices — focused on what’s realistic without an enterprise budget.
+            </p>
+            <div class="post-meta-row">
+              <span>Approx. 7 min read</span>
+              <span class="read-link">Read Article →</span>
+            </div>
+          </a>
+
+          <!-- POST 4 -->
+          <a class='post-card' href='blog-what-is-managed-it.html'>
+            <div class="post-tag">Managed IT</div>
+            <h3 class="post-title">What Is Managed IT? A Plain-English Guide for Illinois Small Businesses</h3>
+            <p class="post-excerpt">
+              Confused by buzzwords? This guide walks through what managed IT really is,
+              how it works, and what changes when you move away from “call only when it’s broken.”
+            </p>
+            <div class="post-meta-row">
+              <span>Approx. 6 min read</span>
+              <span class="read-link">Read Article →</span>
+            </div>
+          </a>
+
+          <!-- POST 5 -->
+          <a class='post-card' href='blog-break-fix-vs-managed-it.html'>
+            <div class="post-tag">Strategy</div>
+            <h3 class="post-title">Break-Fix vs. Managed IT: Which One Actually Saves You Money?</h3>
+            <p class="post-excerpt">
+              Paying only when things break feels cheaper — until you add up downtime, lost work,
+              and surprise emergencies. We compare both models with real-world examples.
+            </p>
+            <div class="post-meta-row">
+              <span>Approx. 5 min read</span>
+              <span class="read-link">Read Article →</span>
+            </div>
+          </a>
+
+          <!-- POST 6 -->
+          <a class='post-card' href='blog-microsoft-365-security-basics.html'>
+            <div class="post-tag">Microsoft 365</div>
+            <h3 class="post-title">Microsoft 365 Security Basics for Solo Pros &amp; Small Teams</h3>
+            <p class="post-excerpt">
+              If your email and files live in Microsoft 365, your business does too.
+              These are the baseline settings to turn on before something goes wrong.
+            </p>
+            <div class="post-meta-row">
+              <span>Approx. 4 min read</span>
+              <span class="read-link">Read Article →</span>
+            </div>
+          </a>
+
+          <!-- POST 7 -->
+          <a class='post-card' href='blog-small-business-cybersecurity-checklist.html'>
+            <div class="post-tag">Cybersecurity</div>
+            <h3 class="post-title">Small Business Cybersecurity Checklist (Illinois Edition)</h3>
+            <p class="post-excerpt">
+              A prioritized list of must-have protections for Illinois businesses —
+              focused on backups, access control, device security, and practical training
+              your whole team can follow.
+            </p>
+            <div class="post-meta-row">
+              <span>Approx. 7 min read</span>
+              <span class="read-link">Read Article →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section section-alt">
+      <div class="container center">
+        <h2>Want Help Turning These Ideas Into a Real Plan?</h2>
+        <p class="section-intro" style="max-width:620px;">
+          IT LEGENDS can review your current setup, flag the biggest risks, and map out a phased
+          upgrade plan that respects your budget.
+        </p>
+        <a class='btn btn-primary' href='Consultation_form.html'>Book a Free Consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>IT LEGENDS LLC</strong><br />
+        2501 Chatham Road, Springfield, IL 62704<br />
+        Phone: <a href="tel:+18479995133">847-999-5133</a>
+      </div>
+      <div class="footer-links">
+        <a href='index.html'>Home</a>
+        <a href='services.html'>Services</a>
+        <a href='service_bundles.html'>Service Bundles</a>
+        <a href='pricing.html'>Pricing</a>
+        <a href='support.html'>Support</a>
+        <a href='faq.html'>FAQ</a>
+        <a href='locations.html'>Locations</a>
+        <a class='active' href='blog.html'>Blog</a>
+        <a href='privacy.html'>Privacy Policy</a>
+        <a href='terms.html'>Terms</a>
+      </div>
+      <div class="footer-copy">
+        © <span id="year"></span> IT LEGENDS LLC. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHARED SCRIPT -->
+  <script>
+    // Year
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    // Nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('nav-open');
+      });
+    }
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('itlegends-theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light-mode');
+      if (themeToggle) themeToggle.textContent = '☀️';
+    }
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        const isLight = body.classList.contains('light-mode');
+        themeToggle.textContent = isLight ? '☀️' : '🌙';
+        localStorage.setItem('itlegends-theme', isLight ? 'light' : 'dark');
+      });
+    }
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+  function closeAllDropdowns() {
+    dropdowns.forEach(d => d.classList.remove('open'));
+  }
+
+  dropdowns.forEach(dd => {
+    const btn = dd.querySelector('.nav-dropbtn');
+    const menu = dd.querySelector('.nav-dropdown-content');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      // close other dropdowns
+      dropdowns.forEach(other => { if (other !== dd) other.classList.remove('open'); });
+      dd.classList.toggle('open');
+    });
+
+    dd.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') dd.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    const clickedInside = e.target.closest && e.target.closest('.nav-dropdown');
+    if (!clickedInside) closeAllDropdowns();
+  });
+
+  // When mobile nav closes, also close dropdowns (prevents "stuck open")
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', function () {
+      // let existing script toggle nav; we just clean dropdown state when nav is not open
+      setTimeout(function(){
+        const isOpen = mainNav.classList.contains('open') || mainNav.getAttribute('aria-expanded') === 'true';
+        if (!isOpen) closeAllDropdowns();
+      }, 0);
+    });
+  }
+});
+</script>
+
+
+<script id="itlegends-cookie-js">
+(function(){
+  var CONSENT_KEY = 'itlegends-cookie-consent';
+  var banner      = document.getElementById('cookieBanner');
+  var backdrop    = document.getElementById('cookieModalBackdrop');
+
+  /* ── helpers ─────────────────────────────────────── */
+  function getConsent(){ return localStorage.getItem(CONSENT_KEY); }
+  function setConsent(val){ localStorage.setItem(CONSENT_KEY, val); }
+
+  function showBanner(){
+    if(banner){ banner.classList.add('show'); }
+  }
+  function hideBanner(){
+    if(banner){ banner.classList.remove('show'); }
+  }
+  function openModal(){
+    if(backdrop){ backdrop.classList.add('open'); }
+  }
+  function closeModal(){
+    if(backdrop){ backdrop.classList.remove('open'); }
+  }
+
+  /* ── show banner on new browser / cleared storage ── */
+  document.addEventListener('DOMContentLoaded', function(){
+    // Show banner if consent has NEVER been given on this browser
+    if(!getConsent()){
+      // Small delay so page renders first, then slides up
+      setTimeout(showBanner, 600);
+    }
+
+    /* ── Accept All button ─────────────────────────── */
+    var btnAcceptAll = document.getElementById('cookieAcceptAll');
+    if(btnAcceptAll){
+      btnAcceptAll.addEventListener('click', function(){
+        setConsent('all');
+        hideBanner();
+        closeModal();
+      });
+    }
+
+    /* ── Reject non-essential ──────────────────────── */
+    var btnReject = document.getElementById('cookieReject');
+    if(btnReject){
+      btnReject.addEventListener('click', function(){
+        setConsent('essential');
+        hideBanner();
+        closeModal();
+      });
+    }
+
+    /* ── Manage preferences ────────────────────────── */
+    var btnManage = document.getElementById('cookieManage');
+    if(btnManage){
+      btnManage.addEventListener('click', function(){
+        openModal();
+      });
+    }
+
+    /* ── Modal: close X ────────────────────────────── */
+    var btnClose = document.getElementById('cookieModalClose');
+    if(btnClose){
+      btnClose.addEventListener('click', function(){
+        closeModal();
+      });
+    }
+
+    /* ── Modal: Save preferences ───────────────────── */
+    var btnSave = document.getElementById('cookieSavePrefs');
+    if(btnSave){
+      btnSave.addEventListener('click', function(){
+        var analytics = document.getElementById('cookieAnalytics');
+        var marketing = document.getElementById('cookieMarketing');
+        var val = 'essential';
+        if(analytics && analytics.checked && marketing && marketing.checked){
+          val = 'all';
+        } else if(analytics && analytics.checked){
+          val = 'analytics';
+        } else if(marketing && marketing.checked){
+          val = 'marketing';
+        }
+        setConsent(val);
+        hideBanner();
+        closeModal();
+      });
+    }
+
+    /* ── Modal: Accept All (inside modal) ──────────── */
+    var btnAcceptAllModal = document.getElementById('cookieAcceptAllModal');
+    if(btnAcceptAllModal){
+      btnAcceptAllModal.addEventListener('click', function(){
+        setConsent('all');
+        hideBanner();
+        closeModal();
+      });
+    }
+
+    /* ── Close modal by clicking backdrop ──────────── */
+    if(backdrop){
+      backdrop.addEventListener('click', function(e){
+        if(e.target === backdrop){ closeModal(); }
+      });
+    }
+
+    /* ── Keyboard: Escape closes modal ─────────────── */
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ closeModal(); }
+    });
+
+    /* ── Pre-fill modal toggles from saved consent ─── */
+    var saved = getConsent();
+    if(saved){
+      var analytics = document.getElementById('cookieAnalytics');
+      var marketing = document.getElementById('cookieMarketing');
+      if(analytics) analytics.checked = (saved === 'all' || saved === 'analytics');
+      if(marketing) marketing.checked = (saved === 'all' || saved === 'marketing');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

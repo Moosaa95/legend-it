@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | IT LEGENDS LLC</title>
+  <meta name="description" content="Privacy Policy for IT LEGENDS LLC, explaining how we collect, use, and protect your information when you use our website and services." />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Cookie banner minimal styles (you can move this into styles.css if you prefer) -->
+  <style>
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.8rem 1.5rem;
+      background: rgba(15, 23, 42, 0.98);
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .cookie-text {
+      max-width: 640px;
+      line-height: 1.4;
+    }
+
+    .cookie-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: flex-end;
+    }
+
+    .btn-cookie-secondary {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: transparent;
+      color: inherit;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    .btn-cookie-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-cookie-primary {
+      padding: 0.35rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid #e63946;
+      background: #e63946;
+      color: #fff;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .btn-cookie-primary:hover {
+      opacity: 0.9;
+    }
+
+    body.light-mode .cookie-banner {
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 640px) {
+      .cookie-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .cookie-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+
+  <!-- ═══ SEO: CANONICAL ═══════════════════════════════════════════ -->
+  <link rel="canonical" href="privacy.html" />
+
+  <!-- ═══ SEO: OPEN GRAPH ══════════════════════════════════════════ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.itlegends.net/privacy" />
+  <meta property="og:title"       content="IT Legends LLC | Managed IT Services Illinois" />
+  <meta property="og:description" content="Managed IT services, cybersecurity, and Microsoft 365 for Illinois businesses. Authorized Microsoft, HP & HPE Partner." />
+  <meta property="og:image"       content="https://www.itlegends.net/itl_monogram_logo.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name"   content="IT Legends LLC" />
+  <meta property="og:locale"      content="en_US" />
+
+  <!-- ═══ SEO: TWITTER CARD ════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="IT Legends LLC | Managed IT Services Illinois" />
+  <meta name="twitter:description" content="Managed IT services, cybersecurity, and Microsoft 365 for Illinois businesses. Authorized Microsoft, HP & HPE Partner." />
+  <meta name="twitter:image"       content="https://www.itlegends.net/itl_monogram_logo.png" />
+
+  <!-- ═══ SEO: ADDITIONAL META ═════════════════════════════════════ -->
+  <meta name="robots"      content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="author"      content="IT Legends LLC" />
+  <meta name="geo.region"  content="US-IL" />
+  <meta name="geo.placename" content="Springfield, Illinois" />
+  <meta name="theme-color" content="#e63946" />
+  <meta name="format-detection" content="telephone=yes" />
+
+  <!-- ═══ PERFORMANCE: PRECONNECT / DNS-PREFETCH ═══════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+
+  <!-- ═══ TYPOGRAPHY UPGRADE ═══════════════════════════════════════ -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- ═══ FAVICON ══════════════════════════════════════════════════ -->
+  <link rel="icon" type="image/png" href="itl_monogram_logo.png" />
+  <link rel="apple-touch-icon" href="itl_monogram_logo.png" />
+  <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+
+
+  <!-- ═══ SCHEMA.ORG: LOCAL BUSINESS ══════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.itlegends.net/#business",
+    "name": "IT Legends LLC",
+    "alternateName": "IT LEGENDS LLC",
+    "description": "Security-first managed IT services, cybersecurity, Microsoft 365, and HPE infrastructure for small businesses across Illinois. Authorized Microsoft, HP & HPE Partner.",
+    "url": "https://www.itlegends.net/",
+    "logo": "https://www.itlegends.net/itl_monogram_logo.png",
+    "image": "https://www.itlegends.net/itl_monogram_logo.png",
+    "telephone": "+18479995133",
+    "email": "victor_o@itlegends.net",
+    "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Credit Card, Debit Card, Cash, Zelle, Venmo",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2501 Chatham Road",
+      "addressLocality": "Springfield",
+      "addressRegion": "IL",
+      "postalCode": "62704",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.7817,
+      "longitude": -89.6501
+    },
+    "areaServed": [
+      {"@type": "State", "name": "Illinois"},
+      {"@type": "City", "name": "Springfield"},
+      {"@type": "City", "name": "Chicago"},
+      {"@type": "City", "name": "Peoria"},
+      {"@type": "City", "name": "Rockford"},
+      {"@type": "City", "name": "Naperville"},
+      {"@type": "City", "name": "Bloomington"},
+      {"@type": "City", "name": "Champaign"},
+      {"@type": "City", "name": "Waukegan"},
+      {"@type": "City", "name": "Evanston"}
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Managed IT Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Managed IT Support"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": "39", "priceCurrency": "USD"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Microsoft 365 Management"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity & Email Security"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HPE Server & Storage Support"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Backup & Disaster Recovery"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Strategy & Advisory"}}
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/it-legends-llc/",
+      "https://www.facebook.com/itlegends"
+    ]
+  }
+  </script>
+
+</head>
+<body>
+<a href="privacy.html#main-content" class="skip-link">Skip to main content</a>
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- HEADER -->
+    <header class="site-header">
+    <div class="container header-inner">
+      <a class='logo-link' href='index.html'>
+        <div class="logo-wrap">
+          <img src="itl_monogram_logo.png" alt="IT LEGENDS logo" class="logo" />
+          <div class="logo-text">
+            <span class="brand-name">IT LEGENDS LLC</span>
+            <span class="brand-tagline">Smart. Secure. Scalable IT.</span>
+          </div>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+
+      <nav class="main-nav" id="mainNav">
+        <div class="nav-dropdown" tabindex="0">
+          <a class='nav-dropbtn' href='services.html'>Services</a>
+          <div class="nav-dropdown-content">
+            <a href='service_bundles.html'>Service Bundles</a>
+            <a href='services.html'>Full Services</a>
+            <a href='cloud-services.html'>Cloud &amp; Infrastructure</a>
+            <a href='security-compliance.html'>Security &amp; Compliance</a>
+            <a href='backup-disaster-recovery.html'>Backup &amp; DR</a>
+            <a href='it-strategy-advisory.html'>IT Advisory</a>
+          </div>
+        </div>
+        <a href='industries.html'>Industries</a>
+        <a href='pricing.html'>Pricing</a>
+        <a href='about.html'>About</a>
+        <a href='support.html'>Support</a>
+        <a href='faq.html'>FAQ</a>
+        <a href='locations.html'>Locations</a>
+        <a href='HP-HPE-MICROSOFT.html'>Solutions &amp; Promotions</a>
+        <a href='blog.html'>Blog</a>
+        <a class='btn btn-outline' href='Consultation_form.html'>Book Consultation</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light/dark mode">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero hero-small">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="section-intro">
+        This Privacy Policy explains how IT LEGENDS LLC collects, uses, and protects your information when you use our website and services.
+      </p>
+      <p><strong>Last Updated:</strong> December 9, 2025</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="section" id="main-content">
+    <div class="container">
+      <section class="section">
+        <div class="card">
+          <h2>1. Overview</h2>
+          <p>
+            At IT LEGENDS LLC (“IT LEGENDS”, “we”, “our”, or “us”), your privacy is important to us. This Privacy Policy
+            explains how we collect, use, and protect information when you visit our website, contact us, or use our services.
+            By using this site, you consent to the practices described in this Privacy Policy.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>2. Information We Collect</h2>
+          <p>We may collect personal data including, but not limited to:</p>
+          <ul>
+            <li>Name</li>
+            <li>Phone Number</li>
+            <li>Email Address</li>
+            <li>Business Name and Address</li>
+            <li>Number of Users/Employees</li>
+            <li>Service-related messages or inquiries</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>3. How We Collect Data</h2>
+          <p>We may collect information through:</p>
+          <ul>
+            <li>Forms on our website (e.g., consultation or contact forms)</li>
+            <li>Direct communication via email, phone, or messaging</li>
+            <li>Our hosting and support platforms that log basic technical information</li>
+            <li>Analytics tools that help us understand how visitors use our site</li>
+          </ul>
+        </div>
+
+        <div class="card" id="cookies">
+          <h2>4. Cookies &amp; Tracking Technologies</h2>
+          <p>
+            Our website may use cookies and similar technologies to:
+          </p>
+          <ul>
+            <li>Remember basic preferences (such as light or dark theme)</li>
+            <li>Understand how visitors navigate and use the site</li>
+            <li>Improve performance and security of our pages</li>
+          </ul>
+          <p>
+            Where required by law, we will request your consent before placing non-essential cookies.
+            You can manage browser-level cookie settings at any time, and you may also contact us if you
+            have questions about how cookies are used on this site.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>5. How We Use Your Information</h2>
+          <p>We use the information we collect to:</p>
+          <ul>
+            <li>Respond to inquiries or service requests</li>
+            <li>Provide customer support, consultations, and ongoing services</li>
+            <li>Send email updates, billing information, or appointment confirmations</li>
+            <li>Improve our website, services, and security</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>6. Data Security</h2>
+          <p>
+            We use reasonable technical and organizational measures to protect your personal information.
+            However, no method of transmission over the internet or method of electronic storage is fully secure,
+            and we cannot guarantee absolute security.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>7. Data Retention</h2>
+          <p>
+            We retain personal data only as long as necessary to fulfill the purposes described in this policy,
+            comply with legal and contractual obligations, resolve disputes, and enforce our agreements.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>8. Your Rights</h2>
+          <p>
+            Depending on your location and applicable law, you may have rights to:
+          </p>
+          <ul>
+            <li>Access the personal information we hold about you</li>
+            <li>Request corrections to inaccurate or incomplete information</li>
+            <li>Request deletion of certain personal information (subject to legal obligations)</li>
+            <li>Object to or restrict certain types of processing</li>
+          </ul>
+          <p>
+            To exercise your rights or ask questions about your data, contact us at
+            <a href="mailto:admin@itlegends.net">admin@itlegends.net</a>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>9. Third-Party Services</h2>
+          <p>
+            We may use third-party providers for hosting, analytics, email delivery, or other business tools.
+            These providers may process information on our behalf and are required to handle data in a manner
+            consistent with applicable privacy laws and this Policy.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>10. International Visitors</h2>
+          <p>
+            IT LEGENDS LLC is based in the United States. If you access our site from outside the U.S.,
+            you understand that your information may be processed and stored in the U.S. where privacy
+            laws may differ from those in your jurisdiction.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>11. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. When we make material changes, we will update
+            the “Last Updated” date at the top of this page. Continued use of our website or services after
+            changes are posted indicates your acceptance of the updated Policy.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>12. Contact Us</h2>
+          <p>
+            If you have any questions about this Privacy Policy or how we handle your information, please contact:
+          </p>
+          <p>
+            IT LEGENDS LLC<br />
+            Email: <a href="mailto:admin@itlegends.net">admin@itlegends.net</a><br />
+            Phone: <a href="tel:+18479995133">847-999-5133</a><br />
+            Address: 2501 Chatham Road, Springfield, IL 62704
+          </p>
+        </div>
+
+       </div>
+  </main>
+
+  <!-- COOKIE / CONSENT BANNER -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="cookie-text">
+      IT LEGENDS uses cookies and similar technologies to run this site, remember your preferences
+      (such as light or dark mode), and understand basic site traffic. By clicking “Accept”, you agree
+      to our use of cookies as described in our <a href='privacy.html' style='text-decoration:underline;'>Privacy Policy</a>.
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="btn-cookie-secondary" onclick="location.href='privacy.html#cookies'">
+        Learn more
+      </button>
+      <button type="button" class="btn-cookie-primary" id="acceptCookies">
+        Accept
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  
+  <!-- ═══ INTERNAL LINKS: Privacy outgoing links fix ═══════════════ -->
+  <section style="padding:2rem 0;background:var(--bg-alt,#0b0d14);border-top:1px solid var(--border,#25283a);">
+    <div class="container">
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:1rem;">Explore our services or get in touch:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+        <a href='index.html' style='color:var(--accent);text-decoration:none;font-size:0.88rem;'>← Home</a>
+        <a href='services.html' style='color:var(--accent);text-decoration:none;font-size:0.88rem;'>Services</a>
+        <a href='pricing.html' style='color:var(--accent);text-decoration:none;font-size:0.88rem;'>Pricing</a>
+        <a href='Consultation_form.html' style='color:var(--accent);text-decoration:none;font-size:0.88rem;'>Book Consultation</a>
+        <a href='support.html' style='color:var(--accent);text-decoration:none;font-size:0.88rem;'>Support</a>
+        <a href='faq.html' style='color:var(--accent);text-decoration:none;font-size:0.88rem;'>FAQ</a>
+      </div>
+    </div>
+  </section>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>IT LEGENDS LLC</strong><br />
+        2501 Chatham Road, Springfield, IL 62704<br />
+        Phone: <a href="tel:+18479995133">847-999-5133</a>
+      </div>
+      <div class="footer-links">
+        <a href='index.html'>Home</a>
+        <a href='services.html'>Services</a>
+        <a href='service_bundles.html'>Service Bundles</a>
+        <a href='industries.html'>Industries</a>
+        <a href='pricing.html'>Pricing</a>
+        <a href='support.html'>Support</a>
+        <a href='faq.html'>FAQ</a>
+        <a class='active' href='privacy.html'>Privacy Policy</a>
+        <a href='terms.html'>Terms</a>
+      </div>
+      <div class="footer-copy">
+        © <span id="year"></span> IT LEGENDS LLC. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHARED SCRIPT + COOKIE LOGIC -->
+  <script>
+    // Year
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('nav-open');
+      });
+    }
+
+    // Theme toggle (sync with other pages)
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('itlegends-theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light-mode');
+      if (themeToggle) themeToggle.textContent = '☀️';
+    }
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        const isLight = body.classList.contains('light-mode');
+        themeToggle.textContent = isLight ? '☀️' : '🌙';
+        localStorage.setItem('itlegends-theme', isLight ? 'light' : 'dark');
+      });
+    }
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Cookie banner logic (very simple consent storage)
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptCookies = document.getElementById('acceptCookies');
+
+    if (cookieBanner && acceptCookies) {
+      const consent = localStorage.getItem('itl_cookie_consent');
+      if (consent !== 'accepted') {
+        cookieBanner.style.display = 'flex';
+      }
+      acceptCookies.addEventListener('click', () => {
+        localStorage.setItem('itl_cookie_consent', 'accepted');
+        cookieBanner.style.display = 'none';
+      });
+    }
+  </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+  function closeAllDropdowns() {
+    dropdowns.forEach(d => d.classList.remove('open'));
+  }
+
+  dropdowns.forEach(dd => {
+    const btn = dd.querySelector('.nav-dropbtn');
+    const menu = dd.querySelector('.nav-dropdown-content');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      // close other dropdowns
+      dropdowns.forEach(other => { if (other !== dd) other.classList.remove('open'); });
+      dd.classList.toggle('open');
+    });
+
+    dd.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') dd.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    const clickedInside = e.target.closest && e.target.closest('.nav-dropdown');
+    if (!clickedInside) closeAllDropdowns();
+  });
+
+  // When mobile nav closes, also close dropdowns (prevents "stuck open")
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', function () {
+      // let existing script toggle nav; we just clean dropdown state when nav is not open
+      setTimeout(function(){
+        const isOpen = mainNav.classList.contains('open') || mainNav.getAttribute('aria-expanded') === 'true';
+        if (!isOpen) closeAllDropdowns();
+      }, 0);
+    });
+  }
+});
+</script>
+
+
+<script id="itlegends-cookie-js">
+(function(){
+  var CONSENT_KEY = 'itlegends-cookie-consent';
+  var banner      = document.getElementById('cookieBanner');
+  var backdrop    = document.getElementById('cookieModalBackdrop');
+
+  /* ── helpers ─────────────────────────────────────── */
+  function getConsent(){ return localStorage.getItem(CONSENT_KEY); }
+  function setConsent(val){ localStorage.setItem(CONSENT_KEY, val); }
+
+  function showBanner(){
+    if(banner){ banner.classList.add('show'); }
+  }
+  function hideBanner(){
+    if(banner){ banner.classList.remove('show'); }
+  }
+  function openModal(){
+    if(backdrop){ backdrop.classList.add('open'); }
+  }
+  function closeModal(){
+    if(backdrop){ backdrop.classList.remove('open'); }
+  }
+
+  /* ── show banner on new browser / cleared storage ── */
+  document.addEventListener('DOMContentLoaded', function(){
+    // Show banner if consent has NEVER been given on this browser
+    if(!getConsent()){
+      // Small delay so page renders first, then slides up
+      setTimeout(showBanner, 600);
+    }
+
+    /* ── Accept All button ─────────────────────────── */
+    var btnAcceptAll = document.getElementById('cookieAcceptAll');
+    if(btnAcceptAll){
+      btnAcceptAll.addEventListener('click', function(){
+        setConsent('all');
+        hideBanner();
+        closeModal();
+      });
+    }
+
+    /* ── Reject non-essential ──────────────────────── */
+    var btnReject = document.getElementById('cookieReject');
+    if(btnReject){
+      btnReject.addEventListener('click', function(){
+        setConsent('essential');
+        hideBanner();
+        closeModal();
+      });
+    }
+
+    /* ── Manage preferences ────────────────────────── */
+    var btnManage = document.getElementById('cookieManage');
+    if(btnManage){
+      btnManage.addEventListener('click', function(){
+        openModal();
+      });
+    }
+
+    /* ── Modal: close X ────────────────────────────── */
+    var btnClose = document.getElementById('cookieModalClose');
+    if(btnClose){
+      btnClose.addEventListener('click', function(){
+        closeModal();
+      });
+    }
+
+    /* ── Modal: Save preferences ───────────────────── */
+    var btnSave = document.getElementById('cookieSavePrefs');
+    if(btnSave){
+      btnSave.addEventListener('click', function(){
+        var analytics = document.getElementById('cookieAnalytics');
+        var marketing = document.getElementById('cookieMarketing');
+        var val = 'essential';
+        if(analytics && analytics.checked && marketing && marketing.checked){
+          val = 'all';
+        } else if(analytics && analytics.checked){
+          val = 'analytics';
+        } else if(marketing && marketing.checked){
+          val = 'marketing';
+        }
+        setConsent(val);
+        hideBanner();
+        closeModal();
+      });
+    }
+
+    /* ── Modal: Accept All (inside modal) ──────────── */
+    var btnAcceptAllModal = document.getElementById('cookieAcceptAllModal');
+    if(btnAcceptAllModal){
+      btnAcceptAllModal.addEventListener('click', function(){
+        setConsent('all');
+        hideBanner();
+        closeModal();
+      });
+    }
+
+    /* ── Close modal by clicking backdrop ──────────── */
+    if(backdrop){
+      backdrop.addEventListener('click', function(e){
+        if(e.target === backdrop){ closeModal(); }
+      });
+    }
+
+    /* ── Keyboard: Escape closes modal ─────────────── */
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ closeModal(); }
+    });
+
+    /* ── Pre-fill modal toggles from saved consent ─── */
+    var saved = getConsent();
+    if(saved){
+      var analytics = document.getElementById('cookieAnalytics');
+      var marketing = document.getElementById('cookieMarketing');
+      if(analytics) analytics.checked = (saved === 'all' || saved === 'analytics');
+      if(marketing) marketing.checked = (saved === 'all' || saved === 'marketing');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+Disallow: /thank-you
+Disallow: /thank_you
+Disallow: /gated-elevate-patient-experience
+Disallow: /gated-erp-ai-ebook
+Disallow: /gated-healthcare-ai-app
+Disallow: /quote
+Disallow: /infrastructure-health-check
+Disallow: /itlegends_promotion
+Disallow: /one_pager
+Disallow: /ITLegends_Pricing_OnePager
+
+Sitemap: https://www.itlegends.net/sitemap.xml
