@@ -1,0 +1,8 @@
+cat > netlify.toml << 'EOF'
+[build]
+  command = "echo 'no build needed'"
+  publish = "."
+
+[[plugins]]
+package = "netlify-plugin-sitemap"
+EOF
