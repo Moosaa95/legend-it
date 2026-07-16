@@ -77,7 +77,7 @@ export default function Footer() {
             <a href="https://www.linkedin.com/company/it-legends-llc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               LinkedIn
             </a>
-            <a href="https://www.facebook.com/itlegends" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://www.facebook.com/Itlegendsllc/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               Facebook
             </a>
           </div>

@@ -319,7 +319,7 @@ export default function Page() {
 
               <div className="social-bar">
                 <a href="https://www.linkedin.com/company/it-legends-llc/" target="_blank" rel="noopener noreferrer" className="social-btn">Follow on LinkedIn</a>
-                <a href="https://www.facebook.com/Itlegendsllc" target="_blank" rel="noopener noreferrer" className="social-btn">Follow on Facebook</a>
+                <a href="https://www.facebook.com/Itlegendsllc/llc" target="_blank" rel="noopener noreferrer" className="social-btn">Follow on Facebook</a>
               </div>
             </div>
 

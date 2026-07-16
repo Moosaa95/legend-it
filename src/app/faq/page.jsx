@@ -131,7 +131,7 @@ export default function Page() {
     },
     "sameAs": [
       "https://www.linkedin.com/company/it-legends-llc/",
-      "https://www.facebook.com/itlegends"
+      "https://www.facebook.com/Itlegendsllc/"
     ]
   }` }}
       />
