@@ -36,6 +36,9 @@ export default function AdminPage() {
     styles: '[]'
   });
 
+  // Mobile layout state
+  const [showSidebarMobile, setShowSidebarMobile] = useState(true);
+
   // Mode: edit or preview
   const [editMode, setEditMode] = useState('editor'); // 'editor' or 'preview'
   
@@ -105,6 +108,7 @@ export default function AdminPage() {
     setActiveSlug(null);
     setItems({});
     setCounts({ blog: 0, locations: 0, industries: 0, services: 0 });
+    setShowSidebarMobile(true);
   };
 
   const fetchCollection = async () => {
@@ -117,7 +121,6 @@ export default function AdminPage() {
       if (res.ok) {
         const data = await res.json();
         setItems(data);
-        // Default to first item if available
         const slugs = Object.keys(data);
         if (slugs.length > 0) {
           selectItem(slugs[0], data[slugs[0]]);
@@ -147,6 +150,7 @@ export default function AdminPage() {
       jsonLds: JSON.stringify(data.jsonLds || [], null, 2),
       styles: JSON.stringify(data.styles || [], null, 2)
     });
+    setShowSidebarMobile(false);
   };
 
   const handleNewItem = () => {
@@ -161,6 +165,7 @@ export default function AdminPage() {
       jsonLds: '[\n  {\n    "@context": "https://schema.org",\n    "@type": "WebPage"\n  }\n]',
       styles: '[]'
     });
+    setShowSidebarMobile(false);
   };
 
   const handleFieldChange = (field, val) => {
@@ -178,7 +183,6 @@ export default function AdminPage() {
     });
   };
 
-  // Inject HTML snippet into the textarea
   const insertSnippet = (snippet) => {
     const textarea = textareaRef.current;
     if (!textarea) return;
@@ -192,7 +196,6 @@ export default function AdminPage() {
     const newBody = before + snippet + after;
     handleFieldChange('body', newBody);
 
-    // Reposition cursor
     setTimeout(() => {
       textarea.focus();
       textarea.selectionStart = textarea.selectionEnd = start + snippet.length;
@@ -251,12 +254,10 @@ export default function AdminPage() {
       if (res.ok) {
         setStatusMsg({ type: 'success', text: 'Changes saved successfully!' });
         
-        // Update local items state
         const updatedItems = { ...items };
         updatedItems[formData.slug] = savePayload.data;
         setItems(updatedItems);
         
-        // Clean old slug if modified
         if (!isNew && activeSlug !== formData.slug) {
           await deleteOldSlug(activeSlug, false);
         }
@@ -338,6 +339,7 @@ export default function AdminPage() {
           handleNewItem();
         }
         loadAllCounts(passcode);
+        setShowSidebarMobile(true);
       } else {
         const err = await res.json();
         setStatusMsg({ type: 'error', text: err.error || 'Failed to delete.' });
@@ -732,6 +734,30 @@ export default function AdminPage() {
           padding: 2rem;
           box-sizing: border-box;
         }
+        .workspace-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1.5rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .workspace-header h2 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin: 0;
+          color: #ffffff;
+        }
+        .workspace-header .badge {
+          background: rgba(230, 57, 70, 0.15);
+          color: #e63946;
+          padding: 0.25rem 0.65rem;
+          border-radius: 6px;
+          font-size: 0.75rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.02em;
+        }
         .form-grid-2 {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -879,6 +905,55 @@ export default function AdminPage() {
           border-radius: 12px;
           box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
         }
+        .mobile-back-btn {
+          display: none;
+          align-items: center;
+          gap: 0.5rem;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: #94a3b8;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          font-size: 0.85rem;
+          font-weight: 700;
+          cursor: pointer;
+          margin-bottom: 1.25rem;
+          width: fit-content;
+          transition: all 0.2s;
+        }
+        .mobile-back-btn:hover {
+          color: #ffffff;
+          border-color: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* MOBILE RESPONSIVE LAYOUT */
+        @media (max-width: 900px) {
+          .admin-sidebar {
+            width: 100% !important;
+            border-right: none !important;
+            display: ${showSidebarMobile ? 'flex' : 'none'} !important;
+          }
+          .admin-workspace {
+            width: 100% !important;
+            display: ${showSidebarMobile ? 'none' : 'flex'} !important;
+          }
+          .mobile-back-btn {
+            display: inline-flex !important;
+          }
+          .admin-header {
+            padding: 1rem;
+          }
+          .workspace-form-wrapper {
+            padding: 1.25rem;
+          }
+        }
+        @media (max-width: 768px) {
+          .form-grid-2 {
+            grid-template-columns: 1fr !important;
+            gap: 1rem;
+          }
+        }
       ` }} />
 
       <header className="admin-header">
@@ -965,6 +1040,24 @@ export default function AdminPage() {
 
           {editMode === 'editor' ? (
             <form onSubmit={handleSave} className="workspace-form-wrapper">
+              {/* Back Button on Mobile */}
+              <button
+                type="button"
+                className="mobile-back-btn"
+                onClick={() => setShowSidebarMobile(true)}
+              >
+                ← Back to List
+              </button>
+
+              <div className="workspace-header">
+                <h2>
+                  {isNew ? 'Creating New Entry' : `Editing: ${formData.title || activeSlug || 'Untitled Page'}`}
+                </h2>
+                <span className="badge">
+                  {COLLECTIONS.find(c => c.id === selectedCollection)?.name}
+                </span>
+              </div>
+
               <div className="form-grid-2">
                 <div className="form-group">
                   <label>Page Title</label>
@@ -1082,16 +1175,44 @@ export default function AdminPage() {
               </div>
             </form>
           ) : (
-            <div className="preview-pane">
+            <div className="preview-pane" style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              {/* Back Button on Mobile */}
+              <button
+                type="button"
+                className="mobile-back-btn"
+                onClick={() => setShowSidebarMobile(true)}
+                style={{ margin: 0 }}
+              >
+                ← Back to List
+              </button>
+
               <iframe
                 srcDoc={`
                   <!DOCTYPE html>
                   <html>
                     <head>
                       <meta charset="utf-8">
+                      <link rel="preconnect" href="https://fonts.googleapis.com">
+                      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
                       <link rel="stylesheet" href="/styles.css">
                       <style>
-                        body { background: #08090d; color: #cbd5e1; padding: 2.5rem; font-family: sans-serif; }
+                        body {
+                          background: #08090d;
+                          color: #cbd5e1;
+                          padding: 2rem;
+                          font-family: 'Inter', sans-serif;
+                          line-height: 1.6;
+                        }
+                        h1, h2, h3, h4, h5, h6 {
+                          font-family: 'Outfit', sans-serif;
+                          color: #ffffff;
+                          margin-top: 0;
+                        }
+                        .container {
+                          max-width: 800px;
+                          margin: 0 auto;
+                        }
                       </style>
                       ${(() => {
                         try {
@@ -1101,11 +1222,14 @@ export default function AdminPage() {
                       })()}
                     </head>
                     <body>
-                      ${formData.body}
+                      <div class="container">
+                        ${formData.body}
+                      </div>
                     </body>
                   </html>
                 `}
                 title="Workspace Preview"
+                style={{ flex: 1 }}
               />
             </div>
           )}
