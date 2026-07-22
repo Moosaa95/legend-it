@@ -4,6 +4,7 @@ const BLOG_POSTS = new Set([
   'break-fix-vs-managed-it',
   'hipaa-vendor-checklist',
   'hybrid-cloud-edge-computing',
+  'it-consulting-services-illinois',
   'it-support-company-usa',
   'managed-it-healthcare-accounting',
   'managed-it-services-for-startups',
