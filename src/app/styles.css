@@ -1373,3 +1373,18 @@ img {
   outline-offset: 3px;
 }
 
+/* Blog details post-tag styling */
+.post-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--accent, #e63946);
+  margin-bottom: 0.5rem;
+}
+body.light-mode .post-tag {
+  color: #c0313d;
+}
+
+
